@@ -1,0 +1,45 @@
+<div class="music-player" [ngClass]="{'menu-hide': !menuFullWidth}">
+    <div class="aside-player">
+        <div class="img-container small rounded">
+            <img src="{{musicItem.coverImage}}">
+        </div>
+        <div class="music-title">
+            <div class="aside-title">{{musicItem.title[0]}}</div>
+            <div class="aside-title">{{musicItem.title[1]}}</div>
+        </div>
+    </div>
+    <div class="main-player">
+        <div class="player-wrapper">
+            <div class="player-main-ctrls">
+                <span class="fa fa-repeat" [ngClass]="{'side-ctrl-active': isRepeat}" (click)="toggleRepeat()"></span>
+                <span class="fa fa-step-backward"></span>
+                <span class="fa fa-play" [ngClass]="{'fa-pause': isCurrentlyPlaying()}" (click)="playAudio()"></span>
+                <span class="fa fa-step-forward"></span>
+                <span class="fa fa-random" [ngClass]="{'side-ctrl-active': isRandom}" (click)="toggleRandom()" ></span>
+            </div>
+            <div class="player-loader">
+                <div class="player-trackline-ctrls">
+                    <div class="current-track-duration">{{currentDuration}}</div>
+                    <div class="trackline" (click)="seekTo($event)">
+                        <span class="current-track-position" [style.width.%]="currentTrackPosition"></span>
+                        <span class="track-duration"></span>
+                    </div>
+                    <div class="track-time">{{time}}</div>
+                </div>
+            </div>
+            <div class="player-side-ctrls">
+                <span class="fa" [ngClass]="{'fa-heart music-added': isAdded, 'fa-heart-o': !isAdded}" (click)="addToFavourites()"></span>
+                <div class="player-volume-mix m-l-3">
+                    <div class="slidecontainer">
+                        <input type="range" min="1" max="100" value="50" class="slider" id="myRange2">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <youtube-player
+            [videoId]="id"
+            (ready)="savePlayer($event)"
+            (change)="onStateChange($event)"
+    ></youtube-player>
+</div>
