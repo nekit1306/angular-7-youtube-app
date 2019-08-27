@@ -22,4 +22,6 @@ export class PlayerComponent implements OnInit {
   onStateChange(event: any): void {
     console.log('player state', event.data);
   }
+  addToFavourites(): void {}
+  togglePlayMusic(): void {}
 }

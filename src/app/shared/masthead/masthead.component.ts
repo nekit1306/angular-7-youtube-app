@@ -9,7 +9,7 @@ import { AuthenticationService, I18nService } from '@app/core';
   styleUrls: ['./masthead.component.scss']
 })
 export class MastheadComponent implements OnInit {
-  menuHidden  = true;
+  menuHidden = true;
   searchValue = '';
 
   constructor(

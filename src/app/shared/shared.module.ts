@@ -8,10 +8,11 @@ import { MastheadComponent } from '@app/shared/masthead/masthead.component';
 import { RouterModule } from '@angular/router';
 import { PlayerComponent } from '@app/shared/player/player.component';
 import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
+import { TrackItemComponent } from './track-item/track-item.component';
 
 @NgModule({
   imports: [CommonModule, NgbModule, FormsModule, RouterModule, NgxYoutubePlayerModule.forRoot()],
-  declarations: [LoaderComponent, SidebarComponent, MastheadComponent, PlayerComponent],
+  declarations: [LoaderComponent, SidebarComponent, MastheadComponent, PlayerComponent, TrackItemComponent],
   exports: [LoaderComponent, SidebarComponent, MastheadComponent, PlayerComponent]
 })
 export class SharedModule {}
