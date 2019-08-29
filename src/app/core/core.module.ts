@@ -13,6 +13,7 @@ import { ApiPrefixInterceptor } from './http/api-prefix.interceptor';
 import { ErrorHandlerInterceptor } from './http/error-handler.interceptor';
 import { CacheInterceptor } from './http/cache.interceptor';
 import { ApiService } from './api.service';
+import { YoutubePlayerService } from './youtube-player.service';
 
 @NgModule({
   imports: [CommonModule, HttpClientModule, TranslateModule, RouterModule],
@@ -22,6 +23,7 @@ import { ApiService } from './api.service';
     I18nService,
     HttpCacheService,
     ApiService,
+    YoutubePlayerService,
     ApiPrefixInterceptor,
     ErrorHandlerInterceptor,
     CacheInterceptor,

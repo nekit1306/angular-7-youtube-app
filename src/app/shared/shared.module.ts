@@ -13,6 +13,6 @@ import { TrackItemComponent } from './track-item/track-item.component';
 @NgModule({
   imports: [CommonModule, NgbModule, FormsModule, RouterModule, NgxYoutubePlayerModule.forRoot()],
   declarations: [LoaderComponent, SidebarComponent, MastheadComponent, PlayerComponent, TrackItemComponent],
-  exports: [LoaderComponent, SidebarComponent, MastheadComponent, PlayerComponent]
+  exports: [LoaderComponent, SidebarComponent, MastheadComponent, PlayerComponent, TrackItemComponent]
 })
 export class SharedModule {}

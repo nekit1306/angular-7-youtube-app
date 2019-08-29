@@ -1,61 +1,84 @@
 <div class="dashboard-page">
-  <div class="section-block bg-section">
+  <article class="section-block bg-section">
     <div class="row">
       <div class="col-md-6">
-        <span class="">FEATURE</span>
-        <h1 class="large-title m-b-2 m-t-1" style="font-size: 56px;">What`s hot this weekend?</h1>
-        <p class="text-grey m-b-2">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent finibus urna eu luctus cursus. Ut laoreet
-          vel odio eget finibus.
-        </p>
-        <a href="" class="submit-button"><i class="fa fa-play"></i> Listen</a>
-        <a href="" class="default-button m-l-1">Check Artist`s</a>
-      </div>
-    </div>
-    <div class="row m-t-1"></div>
-  </div>
-  <div class="feature-block">
-    <div class="row">
-      <div class="col-md-12">
-        <h1 class="large-title">Featured Album`s</h1>
-        <p class="text-grey" style="margin:10px 0 0;">
-          For better results you can <a href="" class="link">define your choice</a>
-        </p>
-        <i class="fa fa-chevron-right float-right"></i>
-        <i class="fa fa-chevron-left float-right"></i>
-      </div>
-      <owl-carousel
-        [options]="{ items: 7, dots: false, navigation: false }"
-        [items]="musicList"
-        [carouselClasses]="['owl-theme', 'row', 'sliding']"
-      >
-      </owl-carousel>
-    </div>
-  </div>
-  <div class="artist-block">
-    <h1 class="large-title">Top Artist`s</h1>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="col-md-12 no-padding">
-          <p class="text-grey" style="margin: 10px 0 0;">
-            For better results you can <a href="" class="link">define your choice</a>
+        <div class="title-block">
+          <span class="d-block">FEATURE</span>
+          <h1 class="lg-title mb-2 mt-1">What`s hot this weekend?</h1>
+          <p class="text-grey mb-2">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent finibus urna eu luctus cursus. Ut laoreet
+            vel odio eget finibus.
           </p>
         </div>
+        <div class="cta-buttons mt-4">
+          <a href="#" class="submit-button"><i class="fas fa-play"></i> Listen</a>
+          <a href="#" class="default-button m-l-1">Check Artist`s</a>
+        </div>
+      </div>
+      <div class="col-md-6"></div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-md-12">
+        <div class="title-block">
+          <h1 class="md-title">Featured Album`s</h1>
+          <p class="text-grey">For better results you can <a href="" class="link">define your choice</a></p>
+        </div>
+        <owl-carousel
+          [options]="{ items: 7, dots: false, navigation: false }"
+          [items]="musicList"
+          [carouselClasses]="['owl-theme', 'row', 'sliding']"
+        >
+          <ng-container *ngFor="let item of musicList">
+            <app-track-item [item]="item" align="horizontal"></app-track-item>
+          </ng-container>
+        </owl-carousel>
+      </div>
+    </div>
+  </article>
+  <article class="feature-block">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="title-block">
+          <h1 class="md-title">Featured Album`s</h1>
+          <p class="text-grey">For better results you can <a href="" class="link">define your choice</a></p>
+          <i class="fas fa-chevron-right float-right"></i>
+          <i class="fas fa-chevron-left float-right"></i>
+        </div>
+        <owl-carousel
+          [options]="{ items: 7, dots: false, navigation: false }"
+          [items]="musicList"
+          [carouselClasses]="['owl-theme', 'row', 'sliding']"
+        >
+          <ng-container *ngFor="let item of musicList">
+            <app-track-item [item]="item" align="horizontal"></app-track-item>
+          </ng-container>
+        </owl-carousel>
+      </div>
+    </div>
+  </article>
+  <article class="artist-block">
+    <h1 class="md-title">Top Artist`s</h1>
+    <div class="row">
+      <div class="col-md-12">
+        <p class="text-grey">For better results you can <a href="" class="link">define your choice</a></p>
       </div>
     </div>
     <owl-carousel
-      [options]="{ items: 8, dots: false, navigation: false }"
+      [options]="{ items: 7, dots: false, navigation: false }"
       [items]="musicList"
       [carouselClasses]="['owl-theme', 'row', 'sliding']"
     >
+      <ng-container *ngFor="let item of musicList">
+        <app-track-item [item]="item" align="horizontal"></app-track-item>
+      </ng-container>
     </owl-carousel>
-  </div>
+  </article>
 
-  <div class="realease-block">
-    <div class="title clearfix">
-      <h1 class="large-title float-left">Latest Album Releases</h1>
-      <a href="" class="link float-right">See all</a>
+  <article class="release-block">
+    <div class="title-block clearfix">
+      <h1 class="md-title float-left">Latest Album Releases</h1>
+      <a href="#" class="link float-right">See all</a>
     </div>
-    <p class="text-grey" style="margin:10px 0 0;">For better results you can ...</p>
-  </div>
+    <p class="text-grey">For better results you can ...</p>
+  </article>
 </div>

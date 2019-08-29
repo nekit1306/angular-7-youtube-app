@@ -10,6 +10,14 @@ body {
   height: 100%;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  color: $color-dark;
+  font-weight: 500;
+}
+
 .divider {
   width: 30px;
   height: 1px;
@@ -82,10 +90,6 @@ body {
   display: flex;
 }
 
-.no-padding {
-  padding: 0;
-}
-
 .section-block {
   &.bg-section {
     padding-top: 40px;
@@ -132,21 +136,12 @@ body {
   padding-bottom: 90px;
 }
 
-.large-title {
-  margin-top: 0;
-  font-weight: 500;
-  font-size: 22px;
-  margin-right: 20px;
-  color: #363d4b;
+.lg-title {
+  font-size: 60px;
 }
 
-.medium-title {
-  margin-top: 0;
-  font-weight: 500;
-  font-size: 18px;
-  margin-right: 20px;
-  float: left;
-  color: #454d58;
+.md-title {
+  font-size: 20px;
 }
 
 .icon-set {
@@ -290,18 +285,12 @@ input.form-control {
     width: 65px;
     height: 65px;
   }
-  &.rounded {
-    border-radius: 50%;
-    img {
-      border-radius: 50%;
-    }
-  }
   img {
     position: relative;
     border-radius: 5px;
     max-width: 100%;
     z-index: 2;
-    &.shadow {
+    &.mirrored {
       bottom: -30px;
       filter: blur(20px); /* this is the magic part */
       height: 100%;
@@ -369,12 +358,12 @@ input.form-control {
 }
 
 .list-music-item {
+  padding: 15px;
   .tracklist-column {
     text-align: left;
     .img-container {
       cursor: pointer;
       position: relative;
-      box-shadow: 0 4px 16px 0 #ddd;
       .overlay {
         position: absolute;
         top: 0;
@@ -385,7 +374,6 @@ input.form-control {
         opacity: 0;
         z-index: 5;
         transition: opacity 0.3s ease;
-        border-radius: 9px;
         .play-icon,
         .pause-icon {
           font-size: 40px;
@@ -432,8 +420,18 @@ input.form-control {
         }
       }
     }
-    .music-info-description {
+    .music-info {
+      text-align: center;
       margin-top: 20px;
+      .music-info__title {
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 0;
+      }
+      .music-info__description {
+        color: $color-secondary;
+        font-size: 13px;
+      }
     }
   }
 }
@@ -837,106 +835,106 @@ input.form-control {
   transition: all 0.3s ease;
 }
 
-.list-music-item {
-  margin-top: 20px;
-  color: #494949;
-  font-weight: 500;
-  align-items: center;
-  justify-content: center;
-  .tracklist-row {
-    display: flex;
-    width: 100%;
-    border-radius: 5px;
-    transition: all 0.5s ease;
-    padding: 7px;
-    cursor: pointer;
-    > div {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      color: #4d606e;
-    }
-    &.list-header {
-      > div {
-        color: #7f7f7f;
-        font-weight: 500;
-      }
-    }
-    &:hover,
-    &:focus,
-    &:active,
-    &.active-item {
-      //border: 1px solid #ebebeb;
-      background: #f4f4f4;
-      .icon-anim-container {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .tracklist-row__artist-title .music-title {
-      text-overflow: ellipsis;
-      margin: 0;
-      font-size: 13px;
-      overflow: hidden;
-      white-space: nowrap;
-      &:last-child {
-        color: $color-secondary;
-      }
-    }
-    .tracklist-row__artist-title {
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-      justify-content: center;
-      align-items: flex-start;
-      > div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 10px;
-        span {
-          display: inline-flex;
-          align-items: center;
-          color: #727a88;
-          font-weight: 500;
-          &.dot {
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-            background: #808080;
-            margin: 0 10px;
-          }
-          .fa {
-            margin-left: 5px;
-          }
-        }
-      }
-    }
-    .tracklist-row__artist-img {
-      text-overflow: ellipsis;
-      .img-container {
-        margin: 0 auto;
-        background: #ddd;
-        margin-right: 25px;
-        width: 40px;
-        height: 40px;
-        position: relative;
-      }
-    }
-    .tracklist-row__btn-more,
-    .tracklist-row__duration,
-    .tracklist-row__track-index,
-    .tracklist-row__btn-playlist {
-      justify-content: center;
-      flex: 0 50px;
-      font-size: 13px;
-    }
-    i.fa {
-      cursor: pointer;
-    }
-  }
-}
+//.list-music-item {
+//  margin-top: 20px;
+//  color: #494949;
+//  font-weight: 500;
+//  align-items: center;
+//  justify-content: center;
+//  .tracklist-row {
+//    display: flex;
+//    width: 100%;
+//    border-radius: 5px;
+//    transition: all 0.5s ease;
+//    padding: 7px;
+//    cursor: pointer;
+//    > div {
+//      display: inline-flex;
+//      justify-content: center;
+//      align-items: center;
+//      color: #4d606e;
+//    }
+//    &.list-header {
+//      > div {
+//        color: #7f7f7f;
+//        font-weight: 500;
+//      }
+//    }
+//    &:hover,
+//    &:focus,
+//    &:active,
+//    &.active-item {
+//      //border: 1px solid #ebebeb;
+//      background: #f4f4f4;
+//      .icon-anim-container {
+//        opacity: 1;
+//        transform: translateY(0);
+//      }
+//    }
+//
+//    .tracklist-row__artist-title .music-title {
+//      text-overflow: ellipsis;
+//      margin: 0;
+//      font-size: 13px;
+//      overflow: hidden;
+//      white-space: nowrap;
+//      &:last-child {
+//        color: $color-secondary;
+//      }
+//    }
+//    .tracklist-row__artist-title {
+//      display: flex;
+//      flex-direction: column;
+//      flex: 1;
+//      justify-content: center;
+//      align-items: flex-start;
+//      > div {
+//        display: flex;
+//        justify-content: center;
+//        align-items: center;
+//        margin-top: 10px;
+//        span {
+//          display: inline-flex;
+//          align-items: center;
+//          color: #727a88;
+//          font-weight: 500;
+//          &.dot {
+//            width: 4px;
+//            height: 4px;
+//            border-radius: 50%;
+//            background: #808080;
+//            margin: 0 10px;
+//          }
+//          .fa {
+//            margin-left: 5px;
+//          }
+//        }
+//      }
+//    }
+//    .tracklist-row__artist-img {
+//      text-overflow: ellipsis;
+//      .img-container {
+//        margin: 0 auto;
+//        background: #ddd;
+//        margin-right: 25px;
+//        width: 40px;
+//        height: 40px;
+//        position: relative;
+//      }
+//    }
+//    .tracklist-row__btn-more,
+//    .tracklist-row__duration,
+//    .tracklist-row__track-index,
+//    .tracklist-row__btn-playlist {
+//      justify-content: center;
+//      flex: 0 50px;
+//      font-size: 13px;
+//    }
+//    i.fa {
+//      cursor: pointer;
+//    }
+//  }
+//}
 
 .primary-text {
   font-weight: 500;
@@ -963,65 +961,6 @@ input.form-control {
   right: -15px;
   border-radius: 50%;
   box-shadow: 0 0 3px 0 #f5f3f3;
-}
-
-.playlist-music-item {
-  .tracklist-row {
-    display: flex;
-    flex-direction: row;
-    > div {
-      display: inline-block;
-      vertical-align: middle;
-      color: #6a7382;
-    }
-    .tracklist-row__artist-title {
-      position: relative;
-      min-width: 0;
-      flex: 1;
-      padding-right: 50px;
-      .track-artist {
-        font-size: 13px;
-        font-weight: 500;
-      }
-
-      .track-title {
-        font-size: 14px;
-        font-weight: 500;
-        color: #4d606e;
-      }
-      .track-artist,
-      .track-title {
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-      }
-      .duration {
-        position: absolute;
-        top: 20px;
-        right: 0;
-      }
-    }
-    .tracklist-row__artist-img {
-      width: 60px;
-      flex: 0;
-      .img-container {
-        margin: 0 auto;
-        background: #ddd;
-        margin-right: 10px;
-        width: 50px;
-        height: 50px;
-      }
-    }
-    .tracklist-row__btn-more,
-    .tracklist-row__duration,
-    .tracklist-row__track-index,
-    .tracklist-row__btn-playlist {
-      text-align: center;
-    }
-    i.fa {
-      cursor: pointer;
-    }
-  }
 }
 
 .modal {

@@ -1,30 +1,41 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="content-section">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <form class="form-inline my-2 my-lg-0 mr-auto header-search">
-                <div class="input-block">
-                    <div class="form-group">
-                        <i class="fas fa-search"></i>
-                        <input type="text" autofocus name="searchInput" placeholder="Find and listen to your favourite music..." [(ngModel)]="searchValue" class="form-control" autocomplete="off"/>
-                    </div>
-                </div>
-            </form>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a href="#">
-                        <img src="assets/notification.svg">
-                        <span class="custom-badge" style="position: absolute; top: 12px;right: 13px;width: 10px; height: 10px; border-radius: 50%;background: #ff537d"></span>
-                    </a>
-                </li>
-                <li class="nav-item profile-item">
-                    <a href="#">
-                        <span class="profile-icon">
-                            <img src="assets/348-0-4.jpg" class="img-fluid rounded-circle profile-icon">
-                        </span>
-                        <b class="caret"></b>
-                    </a>
-                </li>
-            </ul>
+  <div class="content-section">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <form class="form-inline my-2 my-lg-0 mr-auto header-search" (ngSubmit)="onSubmit()">
+        <div class="input-block">
+          <div class="form-group">
+            <i class="fas fa-search"></i>
+            <input
+              type="text"
+              name="searchInput"
+              [(ngModel)]="searchValue"
+              class="form-control"
+              placeholder="Find and listen to your favourite music..."
+              autocomplete="off"
+              autofocus
+            />
+          </div>
         </div>
+      </form>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a href="#">
+            <img src="assets/notification.svg" />
+            <span
+              class="custom-badge"
+              style="position: absolute; top: 12px;right: 13px;width: 10px; height: 10px; border-radius: 50%;background: #ff537d"
+            ></span>
+          </a>
+        </li>
+        <li class="nav-item profile-item">
+          <a href="#">
+            <span class="profile-icon">
+              <img src="assets/348-0-4.jpg" class="img-fluid rounded-circle profile-icon" />
+            </span>
+            <b class="caret"></b>
+          </a>
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>

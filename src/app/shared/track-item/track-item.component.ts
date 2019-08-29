@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { YoutubePlayerService } from '@app/core';
 
 @Component({
   selector: 'app-track-item',
@@ -7,7 +8,16 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TrackItemComponent implements OnInit {
   @Input() public align: string;
-  constructor() {}
+  @Input() public item: any;
+  constructor(yotubePlayerService: YoutubePlayerService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    // someContent
+  }
+  playAudio() {
+    // some func
+  }
+  addToFavourites() {
+    // some func
+  }
 }

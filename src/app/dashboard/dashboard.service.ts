@@ -1,38 +1,37 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, forkJoin } from 'rxjs';
 import { map, catchError, mergeMap } from 'rxjs/operators';
-import { ApiService } from '@app/core/api.service';
-import { ChannelContext, VideoContext } from '@app/dashboard/dashboard.models';
+import { HttpClient } from '@angular/common/http';
+
+const routes = {
+  chart: () => `/videos?part=snippet,contentDetails,statistics&chart=mostPopular&maxResults=10&videoCategoryId=10`,
+  channel: (id: string) => `/channels?id=${id}&part=snippet`
+};
 
 @Injectable()
 export class DashboardService {
-  constructor(private apiService: ApiService) {}
+  constructor(private http: HttpClient) {}
 
-  public getTopChart(context: VideoContext): Observable<any> {
-    return this.apiService.apiGet('/videos', context).pipe(
+  public getTopChart(): Observable<any> {
+    return this.http.get(routes.chart()).pipe(
       map((res: any) => res.items),
       mergeMap((res: any) => {
-        const observables = res.map((musicItem: any) =>
-          this.getMusicWithChannel(musicItem, {
-            id: musicItem.snippet.channelId,
-            part: 'snippet'
-          })
-        );
+        const observables = res.map((musicItem: any) => this.getMusicWithChannel(musicItem));
         return forkJoin(observables);
       }),
-      catchError(() => of('Error, could not load joke :-('))
+      catchError(() => of('Error, something went wrong'))
     );
   }
 
-  private getMusicWithChannel(musicItem: any, context: ChannelContext): Observable<any> {
-    return this.apiService.apiGet('/channels', context).pipe(
+  private getMusicWithChannel(item: any): Observable<any> {
+    return this.http.get(routes.channel(item.snippet.channelId)).pipe(
       map((res: any) => {
         return {
-          video: musicItem,
+          video: item,
           channel: res.items[0]
         };
       }),
-      catchError(() => of('Error, could not load joke :-('))
+      catchError(() => of('Error, something went wrong'))
     );
   }
 }

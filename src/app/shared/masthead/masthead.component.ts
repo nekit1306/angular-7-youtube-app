@@ -47,6 +47,6 @@ export class MastheadComponent implements OnInit {
 
   // TODO validate input
   onSubmit() {
-    console.log(this.searchValue);
+    this.router.navigate(['/login'], { queryParams: { q: this.searchValue } });
   }
 }

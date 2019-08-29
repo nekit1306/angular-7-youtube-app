@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardService } from './dashboard.service';
 import { finalize } from 'rxjs/operators';
+import { MusicItem } from '@app/dashboard/dashboard.models';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,46 +10,34 @@ import { finalize } from 'rxjs/operators';
 })
 export class DashboardComponent implements OnInit {
   isLoading: boolean;
-  musicList: any[] = [];
+  musicList: MusicItem[] = [];
 
   constructor(private dashboardService: DashboardService) {}
 
   ngOnInit() {
     this.isLoading = true;
     this.dashboardService
-      .getTopChart({
-        part: 'snippet, contentDetails, statistics',
-        chart: 'mostPopular',
-        maxResults: 10,
-        videoCategoryId: 10
-      })
+      .getTopChart()
       .pipe(
         finalize(() => {
           this.isLoading = false;
         })
       )
-      .subscribe((data: any) => {
-        this.setMusicList(data);
-      });
+      .subscribe((data: any) => this.initMusicItems(data));
   }
-  setMusicList(data: any) {
-    data.forEach((item: any) => {
-      this.musicList.push({
+
+  initMusicItems(items: any[]): void {
+    this.musicList = items.map(item => {
+      return {
         title: item.video.snippet.title.split(/[-]+/),
         channelTitle: item.video.snippet.channelTitle,
         videoId: item.video.id,
         coverImage: item.channel.snippet.thumbnails.medium.url,
         duration: item.video.contentDetails.duration,
         tags: item.video.snippet.tags.shift(),
-        statistics: {
-          views: item.video.statistics.viewCount,
-          likes: item.video.statistics.likeCount
-        }
-      });
+        views: item.video.statistics.viewCount,
+        likes: item.video.statistics.likeCount
+      };
     });
-  }
-
-  getSubArray(start: number, end: number) {
-    return this.musicList.slice(start, end);
   }
 }
