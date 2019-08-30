@@ -282,8 +282,8 @@ input.form-control {
     height: 35px;
   }
   &.medium {
-    width: 65px;
-    height: 65px;
+    width: 95px;
+    height: 95px;
   }
   img {
     position: relative;
@@ -358,7 +358,7 @@ input.form-control {
 }
 
 .list-music-item {
-  padding: 15px;
+  padding: 10px;
   .tracklist-column {
     text-align: left;
     .img-container {
@@ -1126,4 +1126,22 @@ input:-webkit-autofill:focus {
   color: #555 !important;
   -webkit-box-shadow: 0 0 0 1000px white inset !important;
   -webkit-text-fill-color: #555555 !important;
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #a6a8a4 !important;
+  font-weight: 400 !important;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: pink !important;
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: pink !important;
+}
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: pink !important;
 }

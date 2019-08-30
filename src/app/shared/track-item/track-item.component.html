@@ -4,8 +4,8 @@
   <div class="list-music-item">
     <div class="tracklist-row" (click)="playAudio(item.videoId)" [ngClass]="{ 'active-item': playingEvent === 'play' }">
       <div class="tracklist-row__artist-img">
-        <div class="img-container float-left">
-          <img [src]="item.coverImage" alt="" />
+        <div class="img-container medium float-left">
+          <img class="img-fluid" [src]="item.coverImage" alt="" />
           <span class="fas fa-play icon-anim-container"></span>
         </div>
       </div>
@@ -29,8 +29,8 @@
             <span class="play-icon" (click)="playAudio(item.videoId)"></span>
             <span class="fas fa-heart-o" (click)="addToFavourites()"></span>
           </div>
-          <img class="img-responsive rounded" [src]="item.coverImage" alt="" />
-          <img class="img-responsive mirrored" [src]="item.coverImage" alt="" />
+          <img class="img-fluid rounded" [src]="item.coverImage" alt="" />
+          <img class="img-fluid mirrored" [src]="item.coverImage" alt="" />
         </div>
         <div class="music-info">
           <p class="music-info__title">{{ item.title[0] }}</p>

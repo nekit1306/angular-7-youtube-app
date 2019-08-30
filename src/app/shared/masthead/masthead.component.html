@@ -1,4 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <app-overlay [isOpen]="isDropdownOpen"></app-overlay>
   <div class="content-section">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <form class="form-inline my-2 my-lg-0 mr-auto header-search" (ngSubmit)="onSubmit()">
@@ -8,7 +9,8 @@
             <input
               type="text"
               name="searchInput"
-              [(ngModel)]="searchValue"
+              [ngModel]="searchValue"
+              (ngModelChange)="toggleMenu($event)"
               class="form-control"
               placeholder="Find and listen to your favourite music..."
               autocomplete="off"

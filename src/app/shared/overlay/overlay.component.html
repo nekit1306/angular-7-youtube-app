@@ -1,0 +1,25 @@
+<div class="overlay-search" [ngClass]="{ 'is-active': isOpen }">
+  <div class="search-block">
+    <h3>Search Spotify</h3>
+    <p class="text-grey">Find your favorite songs, artists, albums, podcasts and playlists.</p>
+    <div class="input-block">
+      <input
+        type="text"
+        name="searchInput"
+        [ngModel]="searchInput"
+        (ngModelChange)="onChange($event)"
+        placeholder="Start Typing..."
+        class="input-search form-control"
+        autofocus
+      />
+      <i *ngIf="isLoading" class="fas fa-spinner fa-spin"></i>
+    </div>
+  </div>
+  <div *ngIf="musicList.length" class="results-block">
+    <div class="row">
+      <div class="col-md-2" *ngFor="let item of musicList">
+        <app-track-item [item]="item" align="horizontal"></app-track-item>
+      </div>
+    </div>
+  </div>
+</div>

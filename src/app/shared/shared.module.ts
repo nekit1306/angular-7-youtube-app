@@ -9,10 +9,18 @@ import { RouterModule } from '@angular/router';
 import { PlayerComponent } from '@app/shared/player/player.component';
 import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
 import { TrackItemComponent } from './track-item/track-item.component';
+import { OverlayComponent } from './overlay/overlay.component';
 
 @NgModule({
   imports: [CommonModule, NgbModule, FormsModule, RouterModule, NgxYoutubePlayerModule.forRoot()],
-  declarations: [LoaderComponent, SidebarComponent, MastheadComponent, PlayerComponent, TrackItemComponent],
+  declarations: [
+    LoaderComponent,
+    SidebarComponent,
+    MastheadComponent,
+    PlayerComponent,
+    TrackItemComponent,
+    OverlayComponent
+  ],
   exports: [LoaderComponent, SidebarComponent, MastheadComponent, PlayerComponent, TrackItemComponent]
 })
 export class SharedModule {}

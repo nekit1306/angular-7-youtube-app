@@ -33,4 +33,10 @@ export class PlayerComponent implements OnInit {
   toggleRepeat(): void {
     this.isRepeat = !this.isRepeat;
   }
+  playAudio(): void {
+    // some func
+  }
+  seekTo(): void {
+    // some func
+  }
 }

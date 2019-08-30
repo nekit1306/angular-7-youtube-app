@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable, of, forkJoin } from 'rxjs';
 import { map, catchError, mergeMap } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
 
 const routes = {
   chart: () => `/videos?part=snippet,contentDetails,statistics&chart=mostPopular&maxResults=10&videoCategoryId=10`,

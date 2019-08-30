@@ -11,6 +11,7 @@ import { AuthenticationService, I18nService } from '@app/core';
 export class MastheadComponent implements OnInit {
   menuHidden = true;
   searchValue = '';
+  isDropdownOpen: boolean = false;
 
   constructor(
     private router: Router,
@@ -20,8 +21,8 @@ export class MastheadComponent implements OnInit {
 
   ngOnInit() {}
 
-  toggleMenu() {
-    this.menuHidden = !this.menuHidden;
+  toggleMenu(value: string): void {
+    this.isDropdownOpen = value !== '';
   }
 
   setLanguage(language: string) {
@@ -47,6 +48,6 @@ export class MastheadComponent implements OnInit {
 
   // TODO validate input
   onSubmit() {
-    this.router.navigate(['/login'], { queryParams: { q: this.searchValue } });
+    this.router.navigate(['/login'], { queryParams: { q: encodeURIComponent(this.searchValue) } });
   }
 }
