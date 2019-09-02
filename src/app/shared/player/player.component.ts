@@ -36,7 +36,7 @@ export class PlayerComponent implements OnInit {
   playAudio(): void {
     // some func
   }
-  seekTo(): void {
+  seekTo(event: any): void {
     // some func
   }
 }

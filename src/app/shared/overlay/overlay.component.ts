@@ -1,7 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { OverlayService } from '@app/shared/overlay/overlay.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { YoutubeApiService } from '@app/core/api/youtube-api.service';
-import { finalize } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-overlay',
@@ -10,34 +9,20 @@ import { finalize } from 'rxjs/operators';
 })
 export class OverlayComponent implements OnInit {
   @Input() public isOpen: boolean = false;
-  public searchInput: string = '';
-  public isLoading: boolean = false;
+  @Output() public closeEvent = new EventEmitter();
+  public searchValue: string = '';
   public musicList: any[] = [];
-  constructor(private youtubeApiService: YoutubeApiService) {}
+  constructor(private youtubeApiService: YoutubeApiService, private router: Router) {}
 
   ngOnInit() {}
-  onChange(value: string) {
-    if (value) {
-      this.searchQuery(value);
+  onSubmit() {
+    const val = this.searchValue;
+    if (val) {
+      this.router.navigate(['/search'], { queryParams: { q: val } });
+      this.onClose();
     }
   }
-  searchQuery(value: string) {
-    this.isLoading = true;
-    this.youtubeApiService
-      .getSearchMusic(value)
-      .pipe(
-        finalize(() => {
-          this.isLoading = false;
-        })
-      )
-      .subscribe((data: any) => {
-        console.log(data);
-        this.musicList = data.map((item: any) => ({
-          title: item.video.snippet.title.split(/[-]+/),
-          channelTitle: item.video.snippet.channelTitle,
-          videoId: item.video.id,
-          coverImage: item.channel.snippet.thumbnails.medium.url
-        }));
-      });
+  onClose() {
+    this.closeEvent.emit();
   }
 }

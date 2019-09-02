@@ -210,65 +210,6 @@ input.form-control {
   border-left: 1px solid #eeeded;
 }
 
-.navbar-form.header-search {
-  padding: 0;
-}
-
-.navbar-default {
-  height: 70px;
-  display: flex;
-  /* justify-content: center; */
-  flex-direction: row;
-  align-items: center;
-  .navbar-nav,
-  .header-search {
-    display: flex;
-    flex: 1;
-    align-items: center;
-  }
-  .navbar-right {
-    justify-content: flex-end;
-  }
-}
-
-.profile-icon {
-  width: 35px;
-  margin-right: 10px;
-}
-
-.profile-title {
-  font-weight: 500;
-}
-
-.profile-item a > * {
-  display: inline-block;
-  vertical-align: middle;
-  margin-bottom: 0;
-}
-
-.header-search .form-group {
-  margin-top: 2px;
-}
-
-.header-search input.form-control {
-  height: 36px;
-  font-size: 14px;
-  width: 430px;
-  background: transparent;
-  border-color: transparent;
-  box-shadow: none !important;
-}
-
-.navbar-default {
-  background: #f9fafc;
-  margin-bottom: 0;
-  border: none;
-}
-
-.navbar-right {
-  margin-right: 0;
-}
-
 .img-container {
   position: relative;
   border-radius: 5px;

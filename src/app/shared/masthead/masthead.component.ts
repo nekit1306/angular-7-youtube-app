@@ -21,8 +21,11 @@ export class MastheadComponent implements OnInit {
 
   ngOnInit() {}
 
-  toggleMenu(value: string): void {
-    this.isDropdownOpen = value !== '';
+  closeSearch(): void {
+    this.isDropdownOpen = false;
+  }
+  openSearch(): void {
+    this.isDropdownOpen = true;
   }
 
   setLanguage(language: string) {

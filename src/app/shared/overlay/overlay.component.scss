@@ -4,7 +4,6 @@
   justify-content: center;
   flex-direction: column;
   position: fixed;
-  z-index: 5;
   left: 0;
   width: 100%;
   height: 100%;
@@ -12,20 +11,19 @@
   opacity: 0;
   bottom: 0;
   top: 0;
-  padding-left: 260px;
+  z-index: 99999;
   transform: translate3d(0, 100%, 0);
   background: rgba(255, 255, 255, 0.96);
   transition: transform 0.4s ease, opacity 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
   .search-block {
     text-align: center;
-    flex: 2;
     .input-block {
       display: inline-block;
       background: #fff;
       box-shadow: 0 0 30px #ececec;
       transform: translate3d(0px, 20px, 0px);
       opacity: 0;
-      min-width: 400px;
+      width: 100%;
       transition: all 0.4s 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
       border-radius: 6px;
       .input-search {
@@ -34,11 +32,9 @@
         color: #414141;
         border: none;
         background: none;
+        width: 100%;
       }
     }
-  }
-  .results-block {
-    flex: 3;
   }
   &.is-active {
     transform: translate3d(0, 0, 0);
@@ -48,6 +44,36 @@
         opacity: 1;
         transform: translate3d(0px, 0px, 0px);
       }
+    }
+  }
+  .close-ico {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    cursor: pointer;
+    background: transparent;
+    transition: background 0.2s ease;
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      top: 30px;
+      left: 15px;
+      width: 30px;
+      height: 1px;
+      background: #656565;
+    }
+    &:before {
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+    &:hover {
+      background: #f7f7f7;
     }
   }
 }

@@ -1,0 +1,10 @@
+<article class="search-page">
+  <app-loader [isLoading]="isLoading"></app-loader>
+  <div *ngIf="musicList.length" class="results-block">
+    <div class="row">
+      <div class="col-md-12" *ngFor="let item of musicList">
+        <app-track-item [item]="item" align="vertical"></app-track-item>
+      </div>
+    </div>
+  </div>
+</article>

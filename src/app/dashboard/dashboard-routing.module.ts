@@ -4,10 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { extract } from '@app/core';
 import { DashboardComponent } from './dashboard.component';
 
-const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent, data: { title: extract('Dashboard') } }
-];
+const routes: Routes = [{ path: 'dashboard', component: DashboardComponent, data: { title: extract('Dashboard') } }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

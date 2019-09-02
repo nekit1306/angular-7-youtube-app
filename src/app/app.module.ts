@@ -11,6 +11,9 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { LoginModule } from './login/login.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { SearchModule } from '@app/search/search.module';
+import { FavouritesModule } from '@app/favourites/favourites.module';
+import { PlaylistsModule } from '@app/playlists/playlists.module';
 
 @NgModule({
   imports: [
@@ -21,6 +24,9 @@ import { AppRoutingModule } from './app-routing.module';
     CoreModule,
     SharedModule,
     DashboardModule,
+    SearchModule,
+    FavouritesModule,
+    PlaylistsModule,
     HomeModule,
     LoginModule,
     AppRoutingModule // must be imported as the last module as it contains the fallback route
