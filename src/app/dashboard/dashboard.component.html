@@ -3,7 +3,6 @@
     <div class="row">
       <div class="col-md-6">
         <div class="title-block">
-          <span class="d-block">FEATURE</span>
           <h1 class="lg-title mb-2 mt-1">What`s hot this weekend?</h1>
           <p class="text-grey mb-2">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent finibus urna eu luctus cursus. Ut laoreet
@@ -12,7 +11,7 @@
         </div>
         <div class="cta-buttons mt-4">
           <a href="#" class="submit-button"><i class="fas fa-play"></i> Listen</a>
-          <a href="#" class="default-button m-l-1">Check Artist`s</a>
+          <a href="#" class="default-button ml-3">Check Artist`s</a>
         </div>
       </div>
       <div class="col-md-6"></div>
@@ -21,10 +20,15 @@
       <div class="col-md-12">
         <div class="title-block">
           <h1 class="md-title">Featured Album`s</h1>
-          <p class="text-grey">For better results you can <a href="" class="link">define your choice</a></p>
+          <p class="text-grey text-small">For better results you can <a href="" class="link">define your choice</a></p>
         </div>
         <owl-carousel
-          [options]="{ items: 7, dots: false, navigation: false }"
+          [options]="{
+            items: 8,
+            dots: false,
+            navigation: false,
+            responsive: { '1400': { items: 7 }, '1250': { items: 6 } }
+          }"
           [items]="musicList"
           [carouselClasses]="['owl-theme', 'row', 'sliding']"
         >
@@ -35,17 +39,17 @@
       </div>
     </div>
   </article>
-  <article class="feature-block">
+  <article class="feature-block mt-5">
     <div class="row">
       <div class="col-md-12">
         <div class="title-block">
           <h1 class="md-title">Featured Album`s</h1>
-          <p class="text-grey">For better results you can <a href="" class="link">define your choice</a></p>
+          <p class="text-grey text-small">For better results you can <a href="" class="link">define your choice</a></p>
           <i class="fas fa-chevron-right float-right"></i>
           <i class="fas fa-chevron-left float-right"></i>
         </div>
         <owl-carousel
-          [options]="{ items: 7, dots: false, navigation: false }"
+          [options]="{ items: 6, dots: false, navigation: false }"
           [items]="musicList"
           [carouselClasses]="['owl-theme', 'row', 'sliding']"
         >
@@ -56,29 +60,34 @@
       </div>
     </div>
   </article>
-  <article class="artist-block">
+  <article class="artist-block mt-5">
     <h1 class="md-title">Top Artist`s</h1>
     <div class="row">
       <div class="col-md-12">
-        <p class="text-grey">For better results you can <a href="" class="link">define your choice</a></p>
+        <p class="text-grey text-small">For better results you can <a href="" class="link">define your choice</a></p>
       </div>
     </div>
     <owl-carousel
-      [options]="{ items: 7, dots: false, navigation: false }"
+      [options]="{ items: 8, dots: false, navigation: false }"
       [items]="musicList"
       [carouselClasses]="['owl-theme', 'row', 'sliding']"
     >
       <ng-container *ngFor="let item of musicList">
-        <app-track-item [item]="item" align="horizontal"></app-track-item>
+        <div class="list-music-item">
+          <div class="tracklist-column flex-column">
+            <div class="inner-wrapper">
+              <div class="img-container rounded-circle">
+                <div class="overlay rounded-circle"></div>
+                <img class="img-fluid rounded-circle" [src]="item.coverImage" alt="" />
+                <img class="img-fluid mirrored" [src]="item.coverImage" alt="" />
+              </div>
+              <div class="music-info">
+                <p class="music-info__title">{{ item.title[0] }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </ng-container>
     </owl-carousel>
-  </article>
-
-  <article class="release-block">
-    <div class="title-block clearfix">
-      <h1 class="md-title float-left">Latest Album Releases</h1>
-      <a href="#" class="link float-right">See all</a>
-    </div>
-    <p class="text-grey">For better results you can ...</p>
   </article>
 </div>

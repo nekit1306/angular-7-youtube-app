@@ -8,6 +8,7 @@ body {
 html,
 body {
   height: 100%;
+  overflow-x: hidden;
 }
 
 h1,
@@ -77,6 +78,10 @@ h4 {
   color: $color-secondary;
 }
 
+.text-small {
+  font-size: 14px;
+}
+
 .text-dark {
   color: #454d58;
 }
@@ -91,8 +96,14 @@ h4 {
 }
 
 .section-block {
-  &.bg-section {
-    padding-top: 40px;
+  position: relative;
+  &.bg-section:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 60px;
     background-image: url("http://www.stickpng.com/assets/images/5bc2045ccbebe60315a26ef1.png");
     background-repeat: no-repeat;
     background-position: right;
@@ -207,7 +218,6 @@ input.form-control {
   background: #f9fafc;
   flex: 1;
   position: relative;
-  border-left: 1px solid #eeeded;
 }
 
 .img-container {
@@ -362,16 +372,24 @@ input.form-control {
       }
     }
     .music-info {
-      text-align: center;
       margin-top: 20px;
+      text-align: center;
       .music-info__title {
-        font-size: 14px;
-        font-weight: 500;
-        margin-bottom: 0;
+        font-size: 12px;
+        white-space: nowrap;
+        position: relative;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        color: $color-secondary;
       }
       .music-info__description {
-        color: $color-secondary;
         font-size: 13px;
+        white-space: nowrap;
+        position: relative;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        margin-bottom: 0;
+        font-weight: 500;
       }
     }
   }
@@ -445,97 +463,6 @@ input.form-control {
   width: 100%;
   flex-direction: row;
   padding: 0 30px;
-}
-
-.sidebar {
-  position: relative;
-  background: #fff;
-  z-index: 9999;
-  flex: 0 240px;
-  width: 260px;
-  height: 100%;
-  box-shadow: 2px 0 19px 0 #efebeb;
-  transition: all 0.3s ease;
-  &:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    background: inherit;
-    width: inherit;
-    z-index: -1;
-  }
-  .inner-wrapper {
-    position: fixed;
-    width: 260px;
-  }
-  .sidebar-header {
-    background: #fff;
-    .brand-logo {
-      display: block;
-      height: 60px;
-      padding: 10px 120px;
-      background-image: url("/assets/logo_icon.png");
-      background-size: 100px;
-      background-position: center center;
-      background-repeat: no-repeat;
-    }
-  }
-  &.menu-hide {
-    width: 70px;
-    li.sub-header {
-      opacity: 0;
-      height: 0;
-    }
-    li a span {
-      opacity: 0;
-      transition: all 0.1s ease;
-    }
-  }
-  ul {
-    padding: 0;
-    li {
-      padding: 10px 40px;
-      list-style: none;
-      height: 50px;
-      &.sub-header {
-        font-size: 14px;
-        color: #7b8e9d;
-        transition: all 0.3s ease;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 0.1rem;
-      }
-      a {
-        display: block;
-        font-size: 14px;
-        color: #4b4f51;
-        font-weight: 500;
-        &.active {
-          color: #445056;
-          font-weight: 700;
-          svg path {
-            fill: $color-primary;
-          }
-        }
-        svg {
-          float: left;
-          path {
-            fill: #7b8e9d;
-          }
-        }
-        span {
-          line-height: 22px;
-          display: inline-block;
-          transition: all 0.9s ease;
-          margin-left: 20px;
-        }
-      }
-    }
-    &:not(:last-child) {
-      border-bottom: 1px solid #f3f3f3;
-    }
-  }
 }
 
 .music-player .player-wrapper > div {
@@ -775,107 +702,6 @@ input.form-control {
   transform: translateY(5px);
   transition: all 0.3s ease;
 }
-
-//.list-music-item {
-//  margin-top: 20px;
-//  color: #494949;
-//  font-weight: 500;
-//  align-items: center;
-//  justify-content: center;
-//  .tracklist-row {
-//    display: flex;
-//    width: 100%;
-//    border-radius: 5px;
-//    transition: all 0.5s ease;
-//    padding: 7px;
-//    cursor: pointer;
-//    > div {
-//      display: inline-flex;
-//      justify-content: center;
-//      align-items: center;
-//      color: #4d606e;
-//    }
-//    &.list-header {
-//      > div {
-//        color: #7f7f7f;
-//        font-weight: 500;
-//      }
-//    }
-//    &:hover,
-//    &:focus,
-//    &:active,
-//    &.active-item {
-//      //border: 1px solid #ebebeb;
-//      background: #f4f4f4;
-//      .icon-anim-container {
-//        opacity: 1;
-//        transform: translateY(0);
-//      }
-//    }
-//
-//    .tracklist-row__artist-title .music-title {
-//      text-overflow: ellipsis;
-//      margin: 0;
-//      font-size: 13px;
-//      overflow: hidden;
-//      white-space: nowrap;
-//      &:last-child {
-//        color: $color-secondary;
-//      }
-//    }
-//    .tracklist-row__artist-title {
-//      display: flex;
-//      flex-direction: column;
-//      flex: 1;
-//      justify-content: center;
-//      align-items: flex-start;
-//      > div {
-//        display: flex;
-//        justify-content: center;
-//        align-items: center;
-//        margin-top: 10px;
-//        span {
-//          display: inline-flex;
-//          align-items: center;
-//          color: #727a88;
-//          font-weight: 500;
-//          &.dot {
-//            width: 4px;
-//            height: 4px;
-//            border-radius: 50%;
-//            background: #808080;
-//            margin: 0 10px;
-//          }
-//          .fa {
-//            margin-left: 5px;
-//          }
-//        }
-//      }
-//    }
-//    .tracklist-row__artist-img {
-//      text-overflow: ellipsis;
-//      .img-container {
-//        margin: 0 auto;
-//        background: #ddd;
-//        margin-right: 25px;
-//        width: 40px;
-//        height: 40px;
-//        position: relative;
-//      }
-//    }
-//    .tracklist-row__btn-more,
-//    .tracklist-row__duration,
-//    .tracklist-row__track-index,
-//    .tracklist-row__btn-playlist {
-//      justify-content: center;
-//      flex: 0 50px;
-//      font-size: 13px;
-//    }
-//    i.fa {
-//      cursor: pointer;
-//    }
-//  }
-//}
 
 .primary-text {
   font-weight: 500;

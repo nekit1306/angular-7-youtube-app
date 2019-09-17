@@ -3,26 +3,30 @@
 <ng-template #firstRef>
   <div class="list-music-item">
     <div class="tracklist-row" (click)="playAudio(item.videoId)" [ngClass]="{ 'active-item': playingEvent === 'play' }">
-      <div class="tracklist-row__artist-img">
-        <div class="img-container medium float-left">
+      <div class=" tracklist-row__artist-img">
+        <div class="img-container small float-left">
           <img class="img-fluid" [src]="item.coverImage" alt="" />
           <span class="fas fa-play icon-anim-container"></span>
         </div>
       </div>
       <div class="tracklist-row__artist-title">
-        <p class="music-title">{{ item.title[1] }}</p>
+        <p class="music-name">{{ item.title[1] }}</p>
         <div class="divider small"></div>
-        <p class="music-title">{{ item.title[0] }}</p>
+        <p class="artist-name">{{ item.title[0] }}</p>
       </div>
-      <span class="">#{{ item.tags }}</span>
+      <div class="tracklist-row__duration">3:25</div>
+      <div class="tracklist-row__options">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
     </div>
-    <div class="tracklist-row__duration">3:25</div>
   </div>
 </ng-template>
 
 <ng-template #secondRef>
   <div class="list-music-item">
-    <div class="tracklist-column">
+    <div class="tracklist-column flex-column">
       <div class="inner-wrapper">
         <div class="img-container rounded">
           <div class="overlay rounded">
@@ -33,8 +37,8 @@
           <img class="img-fluid mirrored" [src]="item.coverImage" alt="" />
         </div>
         <div class="music-info">
-          <p class="music-info__title">{{ item.title[0] }}</p>
           <p class="music-info__description">{{ item.title[1] }}</p>
+          <p class="music-info__title">{{ item.title[0] }}</p>
         </div>
       </div>
     </div>

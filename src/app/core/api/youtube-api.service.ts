@@ -5,8 +5,8 @@ import { HttpClient } from '@angular/common/http';
 
 const routes = {
   chart: () => `/videos?part=snippet,contentDetails,statistics&chart=mostPopular&maxResults=10&videoCategoryId=10`,
-  channel: (id: string) => `/channels?id=${id}&part=snippet`,
-  search: (query: string) => `/search?part=snippet&videoCategoryId=10&type=video&q=${query}`
+  channel: (id: string) => `/channels?id=${id}&part=snippet,statistics`,
+  search: (query: string) => `/search?part=snippet&videoCategoryId=10&maxResults=30&type=video&q=${query}`
 };
 
 @Injectable({

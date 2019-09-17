@@ -1,6 +1,36 @@
 <article class="search-page">
   <app-loader [isLoading]="isLoading"></app-loader>
-  <div *ngIf="musicList.length" class="results-block">
+  <div class="search-input">
+    <h4>What you are looking for ?</h4>
+    <form (ngSubmit)="submitForm()">
+      <div class="input-block">
+        <input
+          type="text "
+          name="searchInput"
+          [(ngModel)]="searchValue"
+          placeholder="Start Typing..."
+          class="input-search form-control"
+          autofocus
+        />
+      </div>
+    </form>
+    <p class="text-grey mt-1">Find artists, music or any ...</p>
+  </div>
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link active" href="#">Top Results</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Songs</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Albums</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Artists</a>
+    </li>
+  </ul>
+  <div *ngIf="musicList.length" class="results-block mt-4">
     <div class="row">
       <div class="col-md-12" *ngFor="let item of musicList">
         <app-track-item [item]="item" align="vertical"></app-track-item>

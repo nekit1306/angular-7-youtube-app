@@ -9,15 +9,15 @@ import { YoutubePlayerService } from '@app/core';
 export class TrackItemComponent implements OnInit {
   @Input() public align: string;
   @Input() public item: any;
-  constructor(yotubePlayerService: YoutubePlayerService) {}
+  constructor(private youtubePlayerService: YoutubePlayerService) {}
 
   ngOnInit() {
     // someContent
   }
-  playAudio() {
-    // some func
+  playAudio(videoId: string): void {
+    this.youtubePlayerService.loadAudioById(videoId);
   }
-  addToFavourites() {
+  addToFavourites(): void {
     // some func
   }
 }
